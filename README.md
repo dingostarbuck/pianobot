@@ -18,3 +18,12 @@ I used PyCharm so I simply downloaded 3.7 and then created a new python file wit
 I only upload this to github as a record so that whomever is attempting to learn this program has a firm answer as to how to fix this particular problem.
 
 Because as it turns out constantly having the answer "lmao just use a venv" is incredibly frustrating.
+
+
+
+https://www.python.org/downloads/windows/
+
+use this link to download an earlier version of Python, as doing it the normal way doesn't give you the setup executable (maybe it does and I'm just dumb, entirely possible)
+
+Make sure you do NOT install it to PATH. We are using it as an interpreter, not our main shit, so install it where you installed the latest python but seperate folders yknow?
+(it should automatically do this)
