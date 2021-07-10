@@ -1,0 +1,38 @@
+# To make a bot that automatically clicks the left mouse button to fire the moment it reads the RGB of the piano key
+
+import time
+import keyboard
+import pyautogui
+import win32api
+import win32con
+
+#time.sleep(5)  #This is optional if you need time to switch over but usually it's not needed
+# Tile 1 position: X:  591 Y:  342 RGB: (171, 175, 233)
+# Tile 2 position: X:  691 Y:  342 RGB: (163, 169, 232)
+# Tile 3 position: X:  761 Y:  342 RGB: (160, 164, 232)
+# Tile 4 position: X:  873 Y:  342 RGB: (167, 171, 233)
+# IMPORTANT NOTE: If you have multiple monitors pay attention when using pyautogui.displayMousePosition() to find the coordinates for your mouse, my earliest problem 
+# was realizing my second monitor coordinates were negative X values.
+
+def click(x,y):
+    win32api.SetCursorPos((x,y))
+    win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN, 0, 0)
+    time.sleep(0.1)
+    win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP, 0, 0)
+
+time.sleep(2)
+
+while keyboard.is_pressed('q') == False:
+
+    if pyautogui.pixel(591, 342)[0] == 0:
+        click(591, 342)
+    if pyautogui.pixel(691, 342)[0] == 0:
+        click(691, 342)
+    if pyautogui.pixel(761, 342)[0] == 0:
+        click(761, 342)
+    if pyautogui.pixel(873, 342)[0] == 0:
+        click(863, 342)
+        
+        #Please note that my values here will not be your X values, your values will be different and that is fine, just make sure you open the piano window to the same size
+        # every time to get acccurate clicks.
+        #so if you full screen your browser on Monitor 2 and grab the X coordinates, the next time you want to run the program you must make sure the browser is full screen, capiche?
